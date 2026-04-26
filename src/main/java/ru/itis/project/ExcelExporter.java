@@ -26,21 +26,23 @@ public class ExcelExporter {
         Row header = resultsSheet.createRow(rowNum++);
         header.createCell(0).setCellValue("Size");
         header.createCell(1).setCellValue("Type");
-        header.createCell(2).setCellValue("Time (ns)");
-        header.createCell(3).setCellValue("Time (ms)");
-        header.createCell(4).setCellValue("Recursive calls");
-        header.createCell(5).setCellValue("Swaps");
-        header.createCell(6).setCellValue("Operations");
+        header.createCell(2).setCellValue("Structure");
+        header.createCell(3).setCellValue("Time (ns)");
+        header.createCell(4).setCellValue("Time (ms)");
+        header.createCell(5).setCellValue("Recursive calls");
+        header.createCell(6).setCellValue("Swaps");
+        header.createCell(7).setCellValue("Operations");
 
         for (Result result : results) {
             Row row = resultsSheet.createRow(rowNum++);
             row.createCell(0).setCellValue(result.getSize());
             row.createCell(1).setCellValue(result.getType());
-            row.createCell(2).setCellValue(result.getTimeNs());
-            row.createCell(3).setCellValue(result.getTimeMs());
-            row.createCell(4).setCellValue(result.getRecursiveCalls());
-            row.createCell(5).setCellValue(result.getSwaps());
-            row.createCell(6).setCellValue(result.getOperations());
+            row.createCell(2).setCellValue(result.getStructure());
+            row.createCell(3).setCellValue(result.getTimeNs());
+            row.createCell(4).setCellValue(result.getTimeMs());
+            row.createCell(5).setCellValue(result.getRecursiveCalls());
+            row.createCell(6).setCellValue(result.getSwaps());
+            row.createCell(7).setCellValue(result.getOperations());
         }
 
         writeExperimentSheet(workbook);

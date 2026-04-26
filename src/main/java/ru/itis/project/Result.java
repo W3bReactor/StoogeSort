@@ -7,14 +7,16 @@ public class Result {
     private long swaps;
     private long operations;
     private String type;
+    private String structure;
 
-    public Result(int size, double timeNs, long recursiveCalls, long swaps, String type) {
+    public Result(int size, double timeNs, long recursiveCalls, long swaps, String type, String structure) {
         this.size = size;
         this.timeNs = timeNs;
         this.recursiveCalls = recursiveCalls;
         this.swaps = swaps;
         this.operations = recursiveCalls + swaps;
         this.type = type;
+        this.structure = structure;
     }
 
     public int getSize() { return size; }
@@ -24,4 +26,6 @@ public class Result {
     public long getSwaps() { return swaps; }
     public long getOperations() { return operations; }
     public String getType() { return type; }
+    public String getStructure() { return structure; }
+
 }

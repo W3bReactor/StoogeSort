@@ -1,4 +1,5 @@
 package ru.itis.project;
+import java.util.List;
 
 public class StoogeSort {
 
@@ -38,6 +39,52 @@ public class StoogeSort {
         }
     }
 
+    public static SortMetrics measure(List<Integer> list) {
+        resetMetrics();
+        stoogeSortMeasured(list, 0, list.size() - 1);
+        return new SortMetrics(recursiveCalls, swaps);
+    }
+
+    private static void stoogeSortMeasured(List<Integer> list, int l, int h) {
+        recursiveCalls++;
+
+        if (l >= h)
+            return;
+
+        if (list.get(l) > list.get(h)) {
+            swaps++;
+            int t = list.get(l);
+            list.set(l, list.get(h));
+            list.set(h, t);
+        }
+
+        if (h - l + 1 > 2) {
+            int t = (h - l + 1) / 3;
+
+            stoogeSortMeasured(list, l, h - t);
+            stoogeSortMeasured(list, l + t, h);
+            stoogeSortMeasured(list, l, h - t);
+        }
+    }
+
+    public static void stoogeSort(List<Integer> list, int l, int h) {
+        if (l >= h)
+            return;
+
+        if (list.get(l) > list.get(h)) {
+            int t = list.get(l);
+            list.set(l, list.get(h));
+            list.set(h, t);
+        }
+
+        if (h - l + 1 > 2) {
+            int t = (h - l + 1) / 3;
+
+            stoogeSort(list, l, h - t);
+            stoogeSort(list, l + t, h);
+            stoogeSort(list, l, h - t);
+        }
+    }
 
     /* Как выглядит сортировка в коде */
     public static void stoogeSort(int[] arr, int l, int h) // Массив, левый указатель, правый указатель

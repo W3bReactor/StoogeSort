@@ -1,0 +1,17 @@
+{
+  "workspace": "C:\\ITIS_AISD\\semestrovaya\\presentation_workspace",
+  "pptx": "C:\\ITIS_AISD\\semestrovaya\\presentation_workspace\\output\\output.pptx",
+  "checks": {
+    "output_hygiene": {
+      "output_dir": "C:\\ITIS_AISD\\semestrovaya\\presentation_workspace\\output",
+      "unexpected_files": [
+        "smoke.pptx"
+      ]
+    }
+  },
+  "failures": [
+    "PPTX package inspection failed: unzip -Z1 C:\\ITIS_AISD\\semestrovaya\\presentation_workspace\\output\\output.pptx failed",
+    "output/ contains non-deliverable files: smoke.pptx"
+  ],
+  "warnings": []
+}
